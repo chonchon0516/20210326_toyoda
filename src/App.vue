@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import Home from "./views/Home";
+import Home from "./components/Home";
 export default {
-  views: {
-   Home
+  components: {
+    Home
   }
 };
 </script>
