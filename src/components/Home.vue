@@ -1,28 +1,33 @@
 <template>
   <div id="input_form">
     <input v-model="postcode" type="text" name="postcode" placeholder="" />
-    <button v-on:click="autoCompleteAddress(zipCode)">住所自動入力</button>
+    <button v-on:click="autoCompleteAddress">住所自動入力</button>
   </div>
 </template>
 
 <script>
-data(); {
+import axios from "axios";
+export default {
+  data() {
   return {
     postCode: "",
     address: "",
   }
-}
-methods; {
-  autoCompleteAddress(postCode);{
-    this.axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.address}?apiKey=dsEkrTkHTJNJR2ASwXkgaGlEesHb1Mn0Nfcq22F `)
+},
+
+  methods: {
+  autoCompleteAddress() {
+    this.axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.address}?apiKey=dsEkrTkHTJNJR2ASwXkgaGlEesHb1Mn0Nfcq22F`)
     then.((response)=>{
       this.address = response.data.fullAddress
-    }),
+    })
     .catch(() => {
-      this.address = "";
+      this.address = ""
     })
   }
 }
+
+
 </script>
 
 <style scoped>
