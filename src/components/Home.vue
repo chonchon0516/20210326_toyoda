@@ -16,18 +16,17 @@ export default {
 },
 
   methods: {
-  autoCompleteAddress() {
-    this.axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.address}?apiKey=dsEkrTkHTJNJR2ASwXkgaGlEesHb1Mn0Nfcq22F`)
-    then.((response)=>{
-      this.address = response.data.fullAddress
-    })
-    .catch(() => {
-      this.address = ""
-    })
+    async autoCompleteAddress() {
+       const Result = await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.address}?apiKey=dsEkrTkHTJNJR2ASwXkgaGlEesHb1Mn0Nfcq22F`)
+      .then((response)=>{
+        this.address = response.data.fullAddress
+      })
+     .catch(() => {
+        this.address = ""
+     })
+    }
   }
-}
-
-
+};
 </script>
 
 <style scoped>
