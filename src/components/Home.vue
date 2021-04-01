@@ -43,14 +43,19 @@ export default {
     padding: 6px 12px;
     border: none;
     font-size: 16px;
-    border-radius: 6px;
+    border-radius: 10px;
   }
   button {
-    padding: 7px 20px;
+    padding: 20px 20px;
     font-size: 12px;
     border: none;
-    border-radius: 6px;
+    border-radius: 30px;
     color: #333;
+    margin-right: 30px;
   }
+  p{
+    margin-bottom: 100px;
+  }
+  
 }
 </style>
