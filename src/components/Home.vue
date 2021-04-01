@@ -20,7 +20,7 @@ export default {
     async autoCompleteAddress() {
         await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.postcode}?apiKey=dsEkrTkHTJNJR2ASwXkgaGlEesHb1Mn0Nfcq22F`)
       .then((response)=>{
-        this.postcode = response.data[0].allAddress
+        this.address = response.data[0].allAddress
         
       })
      .catch(() => {
