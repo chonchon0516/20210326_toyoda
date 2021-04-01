@@ -2,6 +2,7 @@
   <div id="input_form">
     <input v-model="postcode" type="text" name="postcode" placeholder="" />
     <button v-on:click="autoCompleteAddress">住所自動入力</button>
+    <p>Adress:{{result.data.results[0]}}</p>
   </div>
 </template>
 
@@ -17,12 +18,12 @@ export default {
 
   methods: {
     async autoCompleteAddress() {
-       const Result = await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.address}?apiKey=dsEkrTkHTJNJR2ASwXkgaGlEesHb1Mn0Nfcq22F`)
+        await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.address}?apiKey=dsEkrTkHTJNJR2ASwXkgaGlEesHb1Mn0Nfcq22F`)
       .then((response)=>{
         this.address = response.data.fullAddress
       })
      .catch(() => {
-        this.address = ""
+        this.postCode = ""
      })
     }
   }
